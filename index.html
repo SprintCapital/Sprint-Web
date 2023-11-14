@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="/assets/css/styles.min.css?h=39ba1f6959e80b70701fdf8c189a092a">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="\assets\css\font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <style>
         :root {
-            --pink-color: #f437ca;
+            --pink-color: #a3005d;
             /* Define the pink color as a CSS variable */
         }
 
@@ -39,8 +40,8 @@
                     <li class="nav-item"><a class="nav-link" href="#our-impact">Our Impact</a></li>
                     <li class="nav-item"><a class="nav-link" href="#connect">Connect</a></li>
                     <li class="nav-item"></li>
-                </ul><a class="btn btn-primary shadow" role="button" href="#know"
-                    style="background: rgb(244,55,202);">Be the First to know</a>
+                </ul><a class="btn btn-primary shadow" role="button" href="#know" style="background: #a3005d;">Be the
+                    First to know</a>
             </div>
         </div>
     </nav><!-- End: Navbar Centered Links -->
@@ -209,12 +210,14 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
                     <div>
-                        <form class="p-3 p-xl-4" method="post">
+                        <form id="contactForm" class="p-3 p-xl-4" action="https://formspree.io/f/mdorvagn"
+                            method="POST">
                             <div class="mb-3"><textarea class="form-control" id="message-1" name="message" rows="6"
                                     placeholder="Message"></textarea></div>
-                            <div><button class="btn btn-primary shadow d-block w-100" type="submit"
-                                    style="background: rgb(244,55,202);">Send </button></div>
+                            <div><button id="sendButton" class="btn btn-primary shadow d-block w-100" type="submit"
+                                    style="background: #a3005d;">Send </button></div>
                         </form>
+                        <div id="successContainer1"></div>
                     </div>
                 </div>
                 <div class="col-md-4 col-xl-4 d-flex justify-content-center justify-content-xl-start">
@@ -232,12 +235,14 @@
                     <h2 class="fw-bold mb-2">Stay In The Loop</h2>
                     <p class="mb-0">Subscribe to our newsletter for updates, launch dates, and exclusive insights.</p>
                 </div>
-                <form class="d-flex justify-content-center flex-wrap flex-lg-nowrap" method="post">
+                <form id="subscribeForm" class="d-flex justify-content-center flex-wrap flex-lg-nowrap"
+                    action="https://formspree.io/f/xyyqakwe" method="POST">
                     <div class="my-2"><input class="border rounded-pill shadow-sm form-control" type="email"
                             name="email" placeholder="Your Email"></div>
-                    <div class="my-2"><button class="btn btn-primary shadow ms-2" type="submit"
-                            style="background: rgb(244,55,202);">Subscribe </button></div>
+                    <div class="my-2"><button id="subscribeButton" class="btn btn-primary shadow ms-2" type="submit"
+                            style="background: #a3005d;">Subscribe </button></div>
                 </form>
+                <div id="successContainer2"></div>
             </div>
         </div>
     </section><!-- End: Newsletter Subscription Color --><!-- Start: Footer Multi Column -->
@@ -281,6 +286,71 @@
             $(window).scroll(function () {
                 updateActiveSection();
             });
+        });
+    </script>
+    <script>
+        // Function to show success message and clear the form
+        function showSuccessAndClearForm(formId, buttonId, successContainerId) {
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.className = 'alert alert-success mt-3';
+            successMessage.innerHTML = 'Form submitted successfully!';
+
+            // Add custom styles to the success message
+            successMessage.style.padding = '10px'; // Add padding
+            successMessage.style.borderRadius = '5px'; // Add border radius
+            successMessage.style.backgroundColor = '#d4edda'; // Add background color
+            successMessage.style.border = '1px solid #c3e6cb'; // Add border
+            successMessage.style.color = 'rgb(244,55,202)'; // Add text color
+
+            // Append the success message to the specified container outside the form
+            document.getElementById(successContainerId).appendChild(successMessage);
+
+            // Disable the button
+            document.getElementById(buttonId).disabled = true;
+
+            // Clear the form after 6 seconds
+            setTimeout(function () {
+                successMessage.remove();
+                document.getElementById(formId).reset(); // Reset the form
+
+                // Enable the button
+                document.getElementById(buttonId).disabled = false;
+            }, 6000);
+        }
+
+        // Function to handle form submission
+        function handleFormSubmit(formId, formAction, buttonId, successContainerId) {
+            // Get form data
+            const formData = new FormData(document.getElementById(formId));
+
+            // Make an HTTP POST request using Axios
+            axios.post(formAction, formData)
+                .then(response => {
+                    // Handle the response (e.g., show a success message)
+                    console.log(response.data);
+                    showSuccessAndClearForm(formId, buttonId, successContainerId);
+                })
+                .catch(error => {
+                    // Handle errors (e.g., show an error message)
+                    console.error(error);
+                });
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Handle form submission for the message form
+            handleFormSubmit('contactForm', 'https://formspree.io/f/mdorvagn', 'sendButton', 'successContainer1');
+        });
+
+        document.getElementById('subscribeForm').addEventListener('submit', function (event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Handle form submission for the subscribe form
+            handleFormSubmit('subscribeForm', 'https://formspree.io/f/xyyqakwe', 'subscribeButton', 'successContainer2');
         });
     </script>
 </body>
