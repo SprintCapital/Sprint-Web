@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Brand</title>
+    <title>Sprint</title>
     <link rel="icon" type="image/png" href="/assets/img/sprint_logo.jpeg">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=4a137410e50fe91a22b09a0763454a44">
     <link rel="stylesheet" href="/assets/css/styles.min.css?h=39ba1f6959e80b70701fdf8c189a092a">
@@ -13,6 +13,10 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <style>
+
+	.sprint {
+		color: pink;
+	}
         :root {
             --pink-color: #a3005d;
             /* Define the pink color as a CSS variable */
@@ -22,6 +26,29 @@
             color: var(--pink-color);
             /* Use the pink color variable for icons with this class */
         }
+
+	.navbar-nav a {
+        position: relative;
+        /* Set the position to relative for the pseudo-element */
+        color: white;
+        /* Set the default text color */
+    }
+
+    .navbar-nav a::before {
+        content:"";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 50%;
+        background-color: var(--pink-color);
+        transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    }
+
+    .navbar-nav a:hover::before {
+        width: 100%;
+        left: 0;
+    }
     </style>
 
 
@@ -56,7 +83,7 @@
                             <br>
                             <strong>
                                 <span style="background-color: rgba(0, 0, 0, 0);">Own your financial freedom with
-                                    SPRINT</span>
+					<span class="sprint">SPRINT</span></span>
                             </strong>
                             <br>
                             <br>
@@ -83,9 +110,14 @@
             </div>
         </div><!-- End: Hero Clean Reverse -->
     </header><!-- Start: Brands -->
-    <section class="py-5" style="margin-top: -50px;">
+    <section id="about-us" class="py-5" style="margin-top: -50px;">
+	<h4 style="text-align: center;">Who are we?</h4>
+
         <div class="container text-center py-5">
-            <p class="mb-4" style="font-size: 1.6rem;font-family: 'ADLaM Display', serif;">SPRINT is a financial services startup making vehicle ownership accessible for gig workers with 0% down payments on electric vehicles, a more inclusive alternative to traditional credibility checks that ensures an individual's credit history no longer serves as a criteria for financing approval, and the chance to get behind the wheels of your own car and start earning in less than a week. Have you ever dreamed of a life free from financial stress? Well, with SPRINT, you can #OwnIt. <br style="display:block; margin: 0 auto;">Click the button below to know when we officially launch.</p>
+		<p class="mb-4" style="font-size: 1.6rem;font-family: 'ADLaM Display', serif;"><span class="sprint">SPRINT</span> is a financial services startup making vehicle ownership accessible for gig workers with 0% down payments on electric vehicles, a more inclusive alternative to traditional credibility checks that ensures an individual's credit history no longer serves as a criteria for financing approval, and the chance to get behind the wheels of your own car and start earning in less than a week. Have you ever dreamed of a life free from financial stress? Well, with <span class="sprint">SPRINT</span>, you can #OwnIt.</p>
+		<br>
+		<br>
+		<p class="mb-4" style="font-size: 1.6rem;font-family: 'ADLaM Display', serif;">Click the button below to know when we officially launch.</p>
 	    <a class="btn btn-primary shadow" role="button" href="#know" style="background: #a3005d;">Be the  
                     First to know</a>
 	    <a href="#"> </a><a
@@ -93,11 +125,10 @@
 
         </div>
     </section><!-- End: Brands -->
-    <section id="about-us">
+    <section>
         <div class="container bg-dark py-5">
             <div class="row">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <p class="fw-bold text-success mb-2">About Us</p>
                     <h3 class="fw-bold">What Sets Us Apart</h3>
                 </div>
             </div>
@@ -110,12 +141,9 @@
                                     style="top:1rem;right:1rem;position:absolute;">
                                     <i class="fa fa-lightbulb-o pink-icon"></i>
                                 </div>
-                                <h5 class="fw-bold card-title">Philosophy Statement</h5>
-                                <p class="text-muted card-text mb-4">At SPRINT, we firmly believe that people should not
-                                    have to settle
-                                    for less than they deserve. Our philosophy is rooted in providing fair and
-                                    accessible financial
-                                    services to all.</p>
+                                <h5 class="fw-bold card-title"> Vision</h5>
+				<p class="text-muted card-text mb-4">At <span class="sprint">SPRINT</span>, we dream of a future where any individual and their family can 
+afford life's basic necessities, regardless of their financial situation.</p>
                             </div>
                         </div>
                     </div>
@@ -126,10 +154,8 @@
                                     style="top:1rem;right:1rem;position:absolute;">
                                     <i class="fa fa-rocket pink-icon"></i>
                                 </div>
-                                <h5 class="fw-bold card-title">Launching Platform</h5>
-                                <p class="text-muted card-text mb-4">We are launching with a platform that offers
-                                    vehicle financing for gig workers. Our approach begins with a 0% down payment on
-                                    electric vehicles.</p>
+                                <h5 class="fw-bold card-title"> Philosophy</h5>
+                                <p class="text-muted card-text mb-4"> We firmly believe that financial well-being is a "fundamental right", not a privilege, so "No one should have to settle for less than they deserve". </p>
                             </div>
                         </div>
                     </div>
@@ -140,25 +166,13 @@
                                     style="top:1rem;right:1rem;position:absolute;">
                                     <i class="fa fa-universal-access pink-icon"></i>
                                 </div>
-                                <h5 class="fw-bold card-title"> Accessibility</h5>
-                                <p class="text-muted card-text mb-4">We understand that traditional financing options
-                                    may not be accessible to everyone due to bad credit scores or insufficient income.
+                                <h5 class="fw-bold card-title"> Mission</h5>
+                                <p class="text-muted card-text mb-4"> We have set out to build the ultimate financing platform to provide our client network with access to services they won't be able to get elsewhere because they've been told countless times that they are not qualified to receive them.
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col mb-4">
-                        <div class="card shadow-sm">
-                            <div class="card-body px-4 py-5 px-md-5">
-                                <div class="d-flex justify-content-center align-items-center bs-icon-lg mb-3 bs-icon"
-                                    style="top:1rem;right:1rem;position:absolute;">
-                                    <i class="fa fa-balance-scale pink-icon"></i>
-                                </div>
-                                <h5 class="fw-bold card-title">Unique Assessment Approach</h5>
-                                <p class="text-muted card-text mb-4">Instead of traditional credibility checks, we make
-                                    use of a more inclusive alternative that ensures an individual's credit history no
-                                    longer serves as a criteria for financing approval.</p>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -169,12 +183,13 @@
         <div class="container py-5">
             <div class="mx-auto" style="max-width: 900px;">
                 <div class="row row-cols-1 row-cols-md-2 d-flex justify-content-center" style="margin-bottom: -8px;">
+		<h4 style="text-align: center;">Social Impact</h4>
+
                     <div class="col mb-4">
                         <div class="card bg-primary-light">
                             <div class="card-body text-center px-4 py-5 px-md-5">
-                                <p class="fw-bold text-primary card-text mb-2">Social Impact</p>
-                                <h5 class="fw-bold card-title mb-3">Equal opportunities, sustainable solutions, and
-                                    positive change.</h5>
+                                <p class="fw-bold text-primary card-text mb-2">Equal Opportunities</p>
+                                <h5 class="fw-bold card-title mb-3">Driven by financial inclusion and the need for positive change, we strive to create equal opportunities for all</h5>
                             </div>
                         </div>
                     </div>
@@ -182,8 +197,7 @@
                         <div class="card bg-secondary-light">
                             <div class="card-body text-center px-4 py-5 px-md-5">
                                 <p class="fw-bold text-secondary card-text mb-2">Empowering Women</p>
-                                <h5 class="fw-bold card-title mb-3">At SPRINT, empower women in the gig economy for a
-                                    brighter future.</h5>
+                                <h5 class="fw-bold card-title mb-3">With a vision for progress, we aim to maintain a 3:2 female-to-male driver ratio while empowering women with new opportunities.</h5>
                             </div>
                         </div>
                     </div>
@@ -191,8 +205,7 @@
                         <div class="card bg-info-light">
                             <div class="card-body text-center px-4 py-5 px-md-5">
                                 <p class="fw-bold text-info card-text mb-2">Go Green with SPRINT</p>
-                                <h5 class="fw-bold card-title mb-3">Sustainability matters. Our electric fleet drives a
-                                    greener tomorrow.</h5>
+				<h5 class="fw-bold card-title mb-3">At <span class="sprint">SPRINT</span>, sustainability matters. We're dedicated to a greener tomorrow, reducing CO2 emissions by exclusively using electric fleets.</h5>
                             </div>
                         </div>
                     </div>
@@ -204,8 +217,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <p class="fw-bold text-success mb-2">Connect</p>
-                    <h2 class="fw-bold">Stay Updated and Share Your Voice</h2>
+                    <h2 class="fw-bold">Stay Updated</h2>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
@@ -251,7 +263,7 @@
         <div class="container py-4 py-lg-5" style="margin-top: -81px;">
             <hr>
             <div class="text-muted d-flex justify-content-between align-items-center pt-3">
-                <p class="mb-0">Copyright © 2023 Brand</p>
+                <p class="mb-0">© 2023 Sprint. All rights reserved</p>
                 <ul class="list-inline mb-0"></ul>
             </div>
         </div>
