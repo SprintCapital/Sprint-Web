@@ -34,6 +34,14 @@
 
     gtag('config', 'G-6DCW501S34');
   </script>
+  <style>
+    .modal-dialog {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+  </style>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -118,7 +126,7 @@
           <li class="nav-item"><a class="nav-link " href="#home">HOME</a></li>
           <li class="nav-item"><a class="nav-link" href="#impact">IMPACT GOALS</a></li>
           <li class="nav-item"><a class="nav-link" href="#whoarewe">ABOUT US</a></li>
-        </ul><button class="btn btn-primary" type="button"
+        </ul><button id="connect1" class="btn btn-primary" type="button"
           style="background: #a3005d;border-radius: 38px;width: 110px;height: 42px;font-size: 17px;">Connect</button>
       </div>
     </div>
@@ -343,6 +351,88 @@
       </div>
     </div>
   </footer><!-- End: Footer Clean -->
+
+  <!-- Subscribe Modal -->
+  <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="subscribeModalLabel">Subscribe to Our Newsletter</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Stay informed about our latest updates and news. Subscribe to our newsletter!</p>
+          <form id="subscribeForm">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="handleSubscribeFormSubmit()"
+              style="background-color: #a3005d; border-radius: 25px;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      // Variable to track whether the modal has been shown
+      var modalShown = false;
+
+      // Function to update active class based on scroll position
+      function updateActiveSection() {
+        var scrollPosition = $(window).scrollTop();
+
+        // Check each section and update the active class
+        $('section').each(function () {
+          var sectionId = $(this).attr('id');
+          var sectionOffset = $(this).offset().top;
+          var sectionHeight = $(this).outerHeight();
+
+          if (scrollPosition >= sectionOffset && scrollPosition < sectionOffset + sectionHeight) {
+            // Set the active class for the corresponding navigation link
+            $('nav a[href="#' + sectionId + '"]').addClass('active');
+          } else {
+            // Remove the active class for other navigation links
+            $('nav a[href="#' + sectionId + '"]').removeClass('active');
+          }
+        });
+
+        // Check if the scroll position is below the "IMPACT GOALS" section
+        var impactSectionOffset = $('#impact').offset().top;
+        var impactSectionHeight = $('#impact').outerHeight();
+
+        if (scrollPosition >= impactSectionOffset + impactSectionHeight && !modalShown) {
+          // Show the form modal only if it hasn't been shown before
+          $('#subscribeModal').modal('show');
+          modalShown = true; // Update the variable to indicate that the modal has been shown
+        }
+      }
+
+      // Call the function on page load
+      updateActiveSection();
+
+      // Call the function on scroll
+      $(window).scroll(function () {
+        updateActiveSection();
+      });
+
+      // Add event listener for the connect buttons
+      document.getElementById('connect1').addEventListener('click', function () {
+        $('#subscribeModal').modal('show');
+        modalShown = true; // Update the variable to indicate that the modal has been shown
+      });
+
+      document.getElementById('connect2').addEventListener('click', function () {
+        $('#subscribeModal').modal('show');
+        modalShown = true; // Update the variable to indicate that the modal has been shown
+      });
+    });
+  </script>
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Function to handle form submission
@@ -390,6 +480,65 @@
 
       // Handle form submission for the form
       handleFormSubmit('form', 'https://formspree.io/f/mdorvagn', 'https://formspree.io/f/mnqkklgd', 'send');
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      // Function to handle form submission
+      function handleFormSubmit(formId, formAction1, formAction2, buttonId) {
+        // Get form data
+        const formData = new FormData(document.getElementById(formId));
+
+        // Disable the button
+        document.getElementById(buttonId).disabled = true;
+        document.getElementById(buttonId).innerText = 'Sent!';
+
+        // Make the first HTTP POST request using Axios
+        axios.post(formAction1, formData)
+          .then(response => {
+            // Handle the response (if needed)
+            console.log(response.data);
+          })
+          .catch(error => {
+            // Handle errors (if needed)
+            console.error(error);
+          });
+
+        // Make the second HTTP POST request using Axios
+        axios.post(formAction2, formData)
+          .then(response => {
+            // Handle the response (if needed)
+            console.log(response.data);
+          })
+          .catch(error => {
+            // Handle errors (if needed)
+            console.error(error);
+          });
+
+        // Clear the form after 5 seconds
+        setTimeout(function () {
+          document.getElementById(buttonId).innerText = 'Send';
+          document.getElementById(buttonId).disabled = false;
+        }, 5000);
+      }
+
+      // Add event listener for the form
+      document.getElementById('form').addEventListener('submit', function (event) {
+        // Prevent the default form submission
+        event.preventDefault();
+
+        // Handle form submission for the form
+        handleFormSubmit('form', 'https://formspree.io/f/mdorvagn', 'https://formspree.io/f/mnqkklgd', 'send');
+      });
+
+      // Add event listener for the connect buttons
+      document.getElementById('connect1').addEventListener('click', function () {
+        $('#subscribeModal').modal('show');
+      });
+
+      document.getElementById('connect2').addEventListener('click', function () {
+        $('#subscribeModal').modal('show');
+      });
     });
   </script>
 </body>
