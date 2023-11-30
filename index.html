@@ -2,6 +2,26 @@
 <html data-bs-theme="light" lang="en">
 
 <head>
+  <style>
+    @keyframes colorChange {
+      0% {
+        color: rgb(25, 245, 170);
+      }
+
+      50% {
+        color: #a3005d;
+      }
+
+      100% {
+        color: rgb(25, 245, 170);
+      }
+    }
+
+    .coming-soon-animation {
+      font-size: 30px;
+      animation: colorChange 3s infinite;
+    }
+  </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6DCW501S34"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -45,11 +65,13 @@
             Revenue based financing for gig workers
           </span>
         </p>
-        <h1 class="fw-bold mb-4" style="font-size: 70px; margin-top: 82px;">
-          Own financial freedom&nbsp;<br>
-          with <span style="color: #a3005d;">SPRINT</span>
-        </h1>
-        <p style="font-size: 30px; color: rgb(25, 245, 170);">Coming Soon</p>
+        <div style="margin-top: 80px;"></div>
+        <div>
+          <img src="assets/hero text/Own financial freedom with SPRINT.svg" alt="vision SVG">
+        </div>
+        <div style="margin-top: 80px;"></div>
+        <p class="coming-soon-animation">Coming Soon</p>
+        <div style="margin-top: 50px;"></div>
         <div class="PrimaryCtaButton"
           style="width: 300px; height: 70px; padding: 26px 42px; background: #95035C; border-radius: 39px; overflow: hidden; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
           <div class="StayInformed"
