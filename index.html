@@ -59,12 +59,15 @@
     .gradientText {
       background: linear-gradient(180deg, #A11CEF 100%, #F302CB 62%);
       -webkit-background-clip: text;
+      background-clip: text;
+      /* Standard property */
       color: transparent;
       display: inline-block;
       font-size: 70px;
       font-weight: 700;
     }
   </style>
+
 </head>
 
 <body><!-- Start: Navbar Centered Links -->
@@ -110,7 +113,7 @@
     </div>
 
   </section><!-- End: Banner Clean --><!-- Start: who are we -->
-  <div class="container flex-fill" id="whoarewe" style="height: 1205px;background: #d8d4dc;">
+  <div class="container flex-fill" id="whoarewe" style="height: 1505px;background: #d8d4dc;">
     <div>
       <h2 class="text-center" style="color: rgb(0,0,0);"><strong>Who are we?</strong></h2>
       <p class="fs-4 text-center" style="margin: 5px;">We are <span style="color: #a3005d;">SPRINT</span> , a financial
@@ -121,7 +124,7 @@
         behind the wheels of your own car and start earning in less than a week.<br>Have you ever dreamed of a life free
         from financial stress? Well, with SPRINT, you can #Ownit.</p>
     </div>
-    <div style=style="display: flex; justify-content: center; align-items: center; height: 100vh;" ;">
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: -95px;" ;">
       <img src="assets/icons/need a car_2.svg" alt="signup process" style="max-width:100%;max-height:100%">
     </div>
     <div style="background: #d8d4dc;">
@@ -267,10 +270,10 @@
             </div>
 
             <div
-              style="width: 100%; height: 100%; text-align: center; color: rgba(0, 0, 0, 0.89); font-size: 22px; font-family: Inter; font-weight: 400; letter-spacing: 2.86px; word-wrap: break-word">
+              style="width: 55%; height: 100%; text-align: center; color: rgba(0, 0, 0, 0.89); font-size: 22px; font-family: Inter; font-weight: 400; letter-spacing: 2.86px; word-wrap: break-word">
               Have a suggestion, or ideas on how we could make our services more inclusive? We're all ears! Share your
               thoughts, let's build the future we want to see.</div>
-
+            <div style="margin-top: 30px;"></div>
             <div class="form-group mb-3"><input class="form-control form-control-lg" type="email"
                 style="width: 400px;margin-left: 0%;" placeholder="Email"></div>
             <div class="form-group mb-3"><textarea class="form-control form-control-lg"
