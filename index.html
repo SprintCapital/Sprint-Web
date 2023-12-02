@@ -44,12 +44,19 @@
   </style>
 
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>sprint</title>
   <link rel="icon" type="image/svg" href="/assets/icons/logos/logo1.svg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/assets/css/styles.min.css?h=8565534f8c6db6390f6ab3833cfe5195">
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-GLhlTQ8iKVAxHvDQcNkvDxpFV2Kgp3/K9+O5daFqOTLp6gB4q8w+cy80LVsZUT2T"
+    crossorigin="anonymous"></script>
 
   <style>
     .navbar-nav a::before {
@@ -77,6 +84,100 @@
       display: inline-block;
       font-size: 70px;
       font-weight: 700;
+    }
+
+    /* Default styles for larger screens */
+    div h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    div p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin: 5px;
+    }
+
+    /* Responsive styles for small screens */
+    @media (max-width: 767px) {
+      .navbar-toggler {
+        display: block;
+      }
+
+      .navbar-collapse {
+        display: none;
+      }
+
+      .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .navbar-nav a::before {
+        display: none;
+        /* Hide the underline on small screens */
+      }
+
+      #connect1 {
+        display: none;
+        /* Hide the "Connect" button on small screens */
+      }
+    }
+
+    /* Default styles for larger screens */
+    div img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Responsive styles for smaller screens */
+    @media only screen and (max-width: 767px) {
+      div img {
+        max-width: 55.5%;
+        /* Set a specific max-width for smaller screens , this is for need a car*/
+        max-height: 850vh;
+        /* Adjust the maximum height as needed */
+      }
+
+      div h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      div p {
+        font-size: 18px;
+      }
+
+      .card-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card-container .col {
+        margin: 10px 0;
+      }
+
+      .card-container img {
+        width: 80%;
+        /* thsi is for the values cards on mobile devives */
+        max-height: auto;
+        border-radius: 40px;
+      }
+
+      #whoarewe {
+        height: 1550px !important;
+      }
+
+      #needdiv {
+        margin: -175px !important;
+      }
+
+      #impact .container {
+        height: 950px !important;
+      }
     }
   </style>
 
@@ -116,17 +217,22 @@
 
 <body><!-- Start: Navbar Centered Links -->
   <nav class="navbar navbar-expand-md bg-body py-3 fixed-top" style="height: 70.5px;">
-    <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><img
-          src="/assets/icons/logos/logo(white).svg" alt="Sprint Logo" style="height: 40px; margin-right: 5px;">
-        <span>SPRINT</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3"><span
-          class="visually-hidden">Toggle
-          navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="/assets/icons/logos/logo(white).svg" alt="Sprint Logo" style="height: 40px; margin-right: 5px;">
+        <span>SPRINT</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navcol-3">
+        <span class="visually-hidden">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navcol-3">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item"><a class="nav-link " href="#home">HOME</a></li>
           <li class="nav-item"><a class="nav-link" href="#impact">IMPACT GOALS</a></li>
           <li class="nav-item"><a class="nav-link" href="#whoarewe">ABOUT US</a></li>
-        </ul><button id="connect1" class="btn btn-primary" type="button"
+        </ul>
+        <button id="connect1" class="btn btn-primary" type="button"
           style="background: #a3005d;border-radius: 38px;width: 110px;height: 42px;font-size: 17px;">Connect</button>
       </div>
     </div>
@@ -155,34 +261,33 @@
       </div>
 
   </section><!-- End: Banner Clean --><!-- Start: who are we -->
-  <div class="container flex-fill" id="whoarewe" style="height: 1405px;background: #d8d4dc;">
+  <div class="container flex-fill" id="whoarewe" style="height: 1405px; background: #d8d4dc;">
     <div>
       <h2 class="text-center" style="color: rgb(0,0,0);"><strong>Who are we?</strong></h2>
-      <p class="fs-4 text-center" style="margin: 5px;">We are <span style="color: #a3005d;">SPRINT</span> , a financial
-        services startup building a platform
-        to make vehicle ownership<br>&nbsp;accessible for gig workers with 0% <strong>down payment </strong>on electric
-        vehicles, a more inclusive<br>&nbsp;alternative to traditional credibility checks that ensures an individual's
-        credit history no<br>&nbsp;longer serves as the main criteria for financing approval, and the chance to get
-        behind the wheels of your own car and start earning in less than a week.<br>Have you ever dreamed of a life free
-        from financial stress? Well, with SPRINT, you can #Ownit.</p>
+      <p class="fs-4 text-center" style="color: rgb(0,0,0);">
+        We are <span style="color: #a3005d;">SPRINT</span>, a financial services startup building a platform
+        to make vehicle ownership accessible for gig workers with 0% <strong>down payment</strong> on electric vehicles,
+        a more inclusive alternative to traditional credibility checks that ensures an individual's credit history no
+        longer serves as the main criteria for financing approval, and the chance to get behind the wheels of your own
+        car and start earning in less than a week.<br>Have you ever dreamed of a life free from financial stress?
+        Well, with SPRINT, you can #Ownit.
+      </p>
     </div>
-    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: -95px;" ;">
-      <img src="assets/icons/need a car_2.svg" alt="signup process" style="max-width:100%;max-height:100%">
+    <div id="needdiv"
+      style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: -95px;">
+      <img src="assets/icons/need a car_2.svg" alt="signup process">
     </div>
     <div style="background: #d8d4dc;">
-      <h2 style="text-align: center;margin: 25px 15px 15px;">Our Values</h2>
-      <div class="row">
-        <div class="col" style="margin: 10px 10px 10px;">
-          <img src="assets/impact goals/vision card.svg" alt="vision SVG"
-            style="width: 100%; height: auto; border-radius: 40px;">
+      <h2 style="text-align: center; margin: 25px 15px 15px;">Our Values</h2>
+      <div class="row card-container">
+        <div class="col">
+          <img src="assets/impact goals/vision card.svg" alt="vision SVG">
         </div>
-        <div class="col" style="margin: 10px 10px 10px;">
-          <img src="assets/impact goals/philosophy card.svg" alt="philosophy SVG"
-            style="width: 100%; height: auto; border-radius: 40px;">
+        <div class="col">
+          <img src="assets/impact goals/philosophy card.svg" alt="philosophy SVG">
         </div>
-        <div class="col" style="margin: 10px 10px 10px;">
-          <img src="assets/impact goals/mission card.svg" alt="Mission SVG"
-            style="width: 100%; height: auto; border-radius: 40px;">
+        <div class="col">
+          <img src="assets/impact goals/mission card.svg" alt="Mission SVG">
         </div>
       </div>
     </div>
