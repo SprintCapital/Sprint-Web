@@ -100,6 +100,11 @@
 
     /* Responsive styles for small screens */
     @media (max-width: 767px) {
+      .navbar-nav {
+        width: 140px !important;
+        /* Set the width to 100% for smaller screens */
+      }
+
       .navbar-toggler {
         display: block;
       }
@@ -134,10 +139,16 @@
 
     /* Responsive styles for smaller screens */
     @media only screen and (max-width: 767px) {
-      div img {
-        max-width: 55.5%;
-        /* Set a specific max-width for smaller screens , this is for need a car*/
-        max-height: 850vh;
+      #acar {
+        max-width: 52.5%;
+        /* Set a specific max-width for smaller screens, this is for need a car*/
+        width: 400px;
+        height: 400px !important;
+      }
+
+      #financialfreedom {
+        max-width: 550px !important;
+        max-height: 1050vh;
         /* Adjust the maximum height as needed */
       }
 
@@ -147,7 +158,7 @@
       }
 
       div p {
-        font-size: 18px;
+        font-size: 20px !important;
       }
 
       .card-container {
@@ -161,14 +172,34 @@
       }
 
       .card-container img {
-        width: 80%;
+        width: 100% !important;
+        /* thsi is for the values cards on mobile devives */
+        max-height: auto;
+        border-radius: 40px;
+      }
+
+      #vision {
+        width: 290px !important;
+        /* thsi is for the values cards on mobile devives */
+        max-height: auto;
+      }
+
+      #mission {
+        width: 315px !important;
+        /* thsi is for the values cards on mobile devives */
+        max-height: auto;
+      }
+
+
+      #philosophy {
+        width: 290px !important;
         /* thsi is for the values cards on mobile devives */
         max-height: auto;
         border-radius: 40px;
       }
 
       #whoarewe {
-        height: 1550px !important;
+        height: 1655px !important;
       }
 
       #needdiv {
@@ -177,6 +208,43 @@
 
       #impact .container {
         height: 950px !important;
+      }
+
+      .card-title,
+      h5 {
+        font-size: 14px !important;
+        /* Adjust the font size as needed */
+        line-height: 1.2em !important;
+        /* Limit the number of lines */
+        max-height: 2.4em !important;
+        /* Adjust the maximum height as needed */
+        overflow: hidden !important;
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical !important;
+      }
+
+      #impact .card-title,
+      #impact h5 {
+        max-height: none !important;
+        /* Set max-height to none or adjust to a larger value */
+      }
+
+      #suggestion {
+        width: 100% !important;
+      }
+
+      #connect2 {
+        width: 200px !important;
+        /* Adjust the width as needed */
+        height: 50px !important;
+        /* Adjust the height as needed */
+        padding: 15px 20px !important;
+        /* Adjust the padding as needed */
+      }
+
+      #connect2 .StayInformed {
+        font-size: 18px !important;
+        /* Adjust the font size as needed */
       }
     }
   </style>
@@ -216,7 +284,7 @@
 </head>
 
 <body><!-- Start: Navbar Centered Links -->
-  <nav class="navbar navbar-expand-md bg-body py-3 fixed-top" style="height: 70.5px;">
+  <nav class="navbar navbar-expand-lg bg-body py-3 fixed-top" style="height: 70.5px;">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="/">
         <img src="/assets/icons/logos/logo(white).svg" alt="Sprint Logo" style="height: 40px; margin-right: 5px;">
@@ -239,14 +307,15 @@
   </nav><!-- End: Navbar Centered Links --><!-- Start: Banner Clean -->
   <section id="home" class="py-4 py-xl-5">
     <div class="container">
+      <div style="margin-top: 50px;"></div>
       <div class="text-center p-4 p-lg-5" style="margin-bottom: 50px;">
         <p class="fw-bold text-primary mb-2" style="font-size: 40px;">
           <span style="font-weight: normal !important; color: rgb(0, 0, 0,0.89);">
-            revenue based financing for gig workers
+            Revenue based financing for gig workers
           </span>
         </p>
         <div style="margin-top: 80px;"></div>
-        <div>
+        <div id="financialfreedom">
           <img src="assets/hero text/Own financial freedom with SPRINT.svg" alt="vision SVG">
         </div>
         <div style="margin-top: 80px;"></div>
@@ -276,18 +345,18 @@
     </div>
     <div id="needdiv"
       style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: -95px;">
-      <img src="assets/icons/need a car_2.svg" alt="signup process">
+      <img id="acar" src="assets/icons/need a car_2.svg" alt="Need a car?">
     </div>
     <div style="background: #d8d4dc;">
       <h2 style="text-align: center; margin: 25px 15px 15px;">Our Values</h2>
       <div class="row card-container">
         <div class="col">
-          <img src="assets/impact goals/vision card.svg" alt="vision SVG">
+          <img id="vision" src="assets/impact goals/vision card.svg" alt="vision SVG">
         </div>
         <div class="col">
-          <img src="assets/impact goals/philosophy card.svg" alt="philosophy SVG">
+          <img id="philosophy" src="assets/impact goals/philosophy card.svg" alt="philosophy SVG">
         </div>
-        <div class="col">
+        <div id="mission" class="col">
           <img src="assets/impact goals/mission card.svg" alt="Mission SVG">
         </div>
       </div>
@@ -298,7 +367,7 @@
   <br>
   <br>
   <section id="impact">
-    <div class="container" style="height: 650px;background: #f1eeee;">
+    <div class="container" style="height: 650px;">
       <h1 style="text-align: center;"><strong>Our Impact Goals</strong></h1>
       <div class="row row-cols-1 row-cols-md-2 d-flex justify-content-center"
         style="margin-bottom: -8px;margin-top: 50px;">
@@ -361,21 +430,25 @@
             <ul class="list-inline fs-6 text-muted w-100 mb-0">
               <li class="list-inline-item text-center">
                 <div class="d-flex flex-column align-items-center">
-                  <img src="assets/hero text/gmail.svg" alt="GitHub Icon"
-                    style="width: 25px; height: 25px; color: #24292e;">
+                  <a href="mailto:twaambolwiindi04@gmail.com" style="text-decoration: none; color: inherit;">
+                    <img src="assets/hero text/gmail.svg" alt="Gmail Icon" style="width: 25px; height: 25px;">
+                  </a>
                 </div>
               </li>
               <li class="list-inline-item text-center">
-                <div class="d-flex flex-column align-items-center">
-                  <img src="assets/hero text/github.svg" alt="GitHub Icon"
-                    style="width: 25px; height: 25px; color: #24292e;">
-                </div>
+                <a href="https://github.com/Papatee04" style="text-decoration: none; color: #24292e;">
+                  <div class="d-flex flex-column align-items-center">
+                    <img src="assets/hero text/github.svg" alt="GitHub Icon" style="width: 25px; height: 25px;">
+                  </div>
+                </a>
               </li>
               <li class="list-inline-item text-center">
-                <div class="d-flex flex-column align-items-center">
-                  <img src="assets/hero text/linkedin.svg" alt="GitHub Icon"
-                    style="width: 25px; height: 25px; color: #24292e;">
-                </div>
+                <a href="https://www.linkedin.com/in/twaambo-lwiindi-9a2363285/"
+                  style="text-decoration: none; color: #24292e;">
+                  <div class="d-flex flex-column align-items-center">
+                    <img src="assets/hero text/linkedin.svg" alt="LinkedIn Icon" style="width: 25px; height: 25px;">
+                  </div>
+                </a>
               </li>
             </ul>
           </div>
@@ -391,21 +464,25 @@
             <ul class="list-inline fs-6 text-muted w-100 mb-0">
               <li class="list-inline-item text-center">
                 <div class="d-flex flex-column align-items-center">
-                  <a href="https://github.com/ebuka1017"><img src="assets/hero text/gmail.svg" alt="GitHub Icon"
-                      style="width: 25px; height: 25px; color: #24292e;"></a>
+                  <a href="mailto:isaacokwuzi@gmail.com" style="text-decoration: none; color: #24292e;">
+                    <img src="assets/hero text/gmail.svg" alt="Gmail Icon" style="width: 25px; height: 25px;">
+                  </a>
                 </div>
               </li>
               <li class="list-inline-item text-center">
-                <div class="d-flex flex-column align-items-center">
-                  <img src="assets/hero text/github.svg" alt="GitHub Icon"
-                    style="width: 25px; height: 25px; color: #24292e;">
-                </div>
+                <a href="https://github.com/ebuka1017" style="text-decoration: none; color: #24292e;">
+                  <div class="d-flex flex-column align-items-center">
+                    <img src="assets/hero text/github.svg" alt="GitHub Icon" style="width: 25px; height: 25px;">
+                  </div>
+                </a>
               </li>
               <li class="list-inline-item text-center">
-                <div class="d-flex flex-column align-items-center">
-                  <img src="assets/hero text/linkedin.svg" alt="GitHub Icon"
-                    style="width: 25px; height: 25px; color: #24292e;">
-                </div>
+                <a href="https://www.linkedin.com/in/isaac-okwuzi-0304791b9/"
+                  style="text-decoration: none; color: #24292e;">
+                  <div class="d-flex flex-column align-items-center">
+                    <img src="assets/hero text/linkedin.svg" alt="LinkedIn Icon" style="width: 25px; height: 25px;">
+                  </div>
+                </a>
               </li>
             </ul>
           </div>
@@ -424,7 +501,7 @@
               <img src="assets/icons/Frame 9.svg" alt="Build with Us" style="height: 150px; width: 400px;">
             </div>
 
-            <div
+            <div id="suggestion"
               style="width: 55%; height: 100%; text-align: center; color: rgba(0, 0, 0, 0.89); font-size: 22px; font-family: Inter; font-weight: 400; letter-spacing: 2.86px; word-wrap: break-word">
               Have a suggestion, or ideas on how we could make our services more inclusive? We're all ears! Share your
               thoughts, let's build the future we want to see.
